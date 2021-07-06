@@ -27,6 +27,7 @@ public class HttpServer01 {
             printWriter.println("Content-Length:" + body.getBytes().length);
             printWriter.println();
             printWriter.write(body);
+//            Thread.sleep(1000);
             printWriter.close();
             socket.close();
         } catch (Exception e) {

@@ -1,9 +1,12 @@
 package com.cta.myclassloader;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.net.URLConnection;
 
 public class MyClassLoader extends ClassLoader{
 
@@ -19,17 +22,31 @@ public class MyClassLoader extends ClassLoader{
     }
 
     @Override
-    protected Class<?> findClass(String name) throws ClassNotFoundException {
-        String resourcePath = name.replace(".", "/");
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(resourcePath+".xlass");
+    protected Class<?> findClass(String name) {
+//        String resourcePath = name.replace(".", "\\");
+//        String resourcePath = name;
+//        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(resourcePath+".xlass");
+        URLClassLoader urlClassLoader;
+        File file = new File("D:\\"+name+".xlass");
+        System.out.println("URI:"+file.toURI());
+
+        InputStream inputStream = null;
         try {
-            byte[] bytes = new byte[inputStream.available()];
-            inputStream.read(bytes);
-            byte[] newBytes = decode(bytes);
+            byte[] newBytes = null;
+            try {
+//                System.out.println("URL:"+file.toURI().toURL());
+                URL url = file.toURI().toURL();
+                URLConnection urlc = url.openConnection();
+                inputStream = urlc.getInputStream();
+//                inputStream = new FileInputStream("D:\\"+name+".xlass");
+                byte[] bytes = new byte[inputStream.available()];
+                inputStream.read(bytes);
+                newBytes = decode(bytes);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             return defineClass(name, newBytes, 0, newBytes.length);
-        } catch (IOException e) {
-            throw new ClassNotFoundException(name, e);
-        } finally {
+        }  finally {
             try {
                 inputStream.close();
             } catch (IOException e) {

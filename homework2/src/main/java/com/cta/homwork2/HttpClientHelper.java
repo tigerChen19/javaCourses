@@ -4,11 +4,13 @@ package com.cta.homwork2;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.net.URI;
 
 public class HttpClientHelper {
 
@@ -19,7 +21,7 @@ public class HttpClientHelper {
         HttpGet httpGet = new HttpGet(url);
         CloseableHttpResponse response1 = httpclient.execute(httpGet);
         try {
-            System.out.println(response1.getStatusLine());
+            System.out.println("返回状态："+response1.getStatusLine().getStatusCode());
             HttpEntity entity1 = response1.getEntity();
             String html = EntityUtils.toString(entity1, "UTF-8");
             EntityUtils.consume(entity1);
@@ -37,6 +39,7 @@ public class HttpClientHelper {
     public static void main(String[] args) throws Exception {
 
         String url = "http://localhost:8801";
+//        URI uri = new URIBuilder().setScheme("http").setHost("localhost").setPort(8801).build();
         String text = HttpClientHelper.getAsString(url);
         System.out.println("url: " + url + " ; response: \n" + text);
 
