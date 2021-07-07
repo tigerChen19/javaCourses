@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/commons-io-train/commons-io-train.iml" filepath="$PROJECT_DIR$/commons-io-train/commons-io-train.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homework2/homwork2.iml" filepath="$PROJECT_DIR$/homework2/homwork2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/javaCourses.iml" filepath="$PROJECT_DIR$/.idea/javaCourses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myclassloader/myclassloader.iml" filepath="$PROJECT_DIR$/myclassloader/myclassloader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homework03/02nio/nio01/nio01.iml" filepath="$PROJECT_DIR$/homework03/02nio/nio01/nio01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/week03/week03.iml" filepath="$PROJECT_DIR$/week03/week03.iml" />
+    </modules>
+  </component>
+</project>
