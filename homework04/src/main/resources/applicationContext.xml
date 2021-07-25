@@ -7,8 +7,8 @@
 
     <bean id="studentCta"
           class="cta.MyStudent">
-        <property name="id" value="1111" />
-        <property name="name" value="cta1111" />
+        <property name="id" value="1111"/>
+        <property name="name" value="cta1111"/>
     </bean>
 
     <context:component-scan base-package="cta"></context:component-scan>
