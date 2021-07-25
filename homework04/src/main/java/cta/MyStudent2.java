@@ -8,14 +8,17 @@ import org.springframework.stereotype.Component;
 @Data
 @Component(value = "myStudent2")
 public class MyStudent2 {
-    @Autowired MyStudent3 myStudent3;
+    @Autowired
+    MyStudent3 myStudent3;
 
     private int id;
-    private String name="myStudenComponet";
-    public void print(){
+    private String name = "myStudenComponet";
+
+    public void print() {
         System.out.println("my name is " + this.name);
     }
-    public void print2(){
+
+    public void print2() {
         myStudent3.print();
     }
 

@@ -6,7 +6,8 @@ import lombok.Data;
 public class MyStudent {
     private int id;
     private String name;
-    public void print(){
-        System.out.println("my name is "+ getName());
+
+    public void print() {
+        System.out.println("my name is " + getName());
     }
 }

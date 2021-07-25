@@ -21,8 +21,8 @@ public class SpringDemo01 {
         myStudent4.print();
     }
 
-    @Bean(name="myStudent4")
-    public static MyStudent4 getMyStudent4(){
+    @Bean(name = "myStudent4")
+    public static MyStudent4 getMyStudent4() {
         MyStudent4 myStudent4 = new MyStudent4();
         myStudent4.setName("学生4");
         return myStudent4;
